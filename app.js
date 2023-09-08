@@ -13,13 +13,13 @@ function generateUserId(reqBody) {
   return `${full_name}_${formattedDob}`;
 }
 
-// POST endpoint
+
 app.post('/bfhl', (req, res) => {
   try {
     const { full_name, email, roll_number, numbers, alphabets } = req.body;
     const user_id = generateUserId(req.body);
 
-    // Calculate the highest alphabet in the input array of alphabets
+    
     const highestAlphabet = alphabets.reduce((max, current) => (current > max ? current : max), '');
 
     const response = {
@@ -38,9 +38,7 @@ app.post('/bfhl', (req, res) => {
   }
 });
 
-// GET endpoint
 app.get('/bfhl', (req, res) => {
-  // You can hardcode the response for the GET endpoint
   const response = {
     operation_code: 1,
   };
